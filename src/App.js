@@ -1,3 +1,4 @@
+import MoviePage from "./MoviePage";
 import SearchForm from "./SearchForm";
 
 function App() {
@@ -5,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <SearchForm />
-      
+      <MoviePage />
     </div>
   );
 }
