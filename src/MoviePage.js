@@ -19,7 +19,7 @@ useEffect(() => {
     useEffect(() => console.log(film), [film])
     return (
       <div className="App dark:bg-black">
-        <img className="w-full sm:w-1/2 dark:border-white dark:border-4" src={film.backdropURLs.original}/>
+        <img className="w-full sm:w-1/2 dark:border-white dark:border-4" src={film.backdropURLs?.original}/>
       </div>
     );
   }
