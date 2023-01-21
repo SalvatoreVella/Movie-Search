@@ -32,7 +32,7 @@ export default function SearchForm() {
     })
 
     return <div>
-    <div className="dark:text-black py-5 bg-opacity-10 bg-slate-500">
+    <div className="dark:text-white py-5 bg-opacity-10 bg-slate-500">
             <h2 className="text-center text-3xl pb-3">Search movie by title</h2>
         <form onSubmit={search} className="flex flex-col justify-center gap-3 items-center sm:flex-row" >
             <label htmlFor="title" className="text-lg">Title:</label>
@@ -43,7 +43,7 @@ export default function SearchForm() {
             </button>
         </form>
     </div>
-        <div className="flex min-h-screen justify-around items-center flex-wrap">
+        <div className="flex min-h-custom justify-around items-center flex-wrap">
             {infos && map}
         </div>
     </div>

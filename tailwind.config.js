@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      minHeight: {
+        'custom': 'calc(100vh - 130px)',
+      },
+
       height: {
         "84": "22rem"
       }
