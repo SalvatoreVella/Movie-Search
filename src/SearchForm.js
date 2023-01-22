@@ -11,12 +11,12 @@ export default function SearchForm() {
             const json = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_8p9jb7w1?title=${e.target.elements.title.value}`);
             const data = await json.json();
             setInfos(() => data.results);
+            console.log(data.results)
         } catch (err) {
             console.error(err);
         }
     }
 
-    useEffect(() => console.log(infos), [infos])
 
     let map = infos.map(result => {
         if (result.image !== "https://imdb-api.com/images/original/nopicture.jpg") {
