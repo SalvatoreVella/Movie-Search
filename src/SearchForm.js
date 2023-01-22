@@ -1,38 +1,18 @@
-import { useEffect, useState } from "react"
-import MovieCard from "./MovieCard";
+import { useNavigate } from "react-router";
 
 
 export default function SearchForm() {
-    const [infos, setInfos] = useState([])
+
+const navigate = useNavigate()
+
 
     async function search(e) {
         e.preventDefault();
-        try {
-            const json = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_8p9jb7w1?title=${e.target.elements.title.value}`);
-            const data = await json.json();
-            setInfos(() => data.results);
-            console.log(data.results)
-        } catch (err) {
-            console.error(err);
-        }
+        navigate(`/${e.target.elements.title.value}`);
     }
 
 
-    let map = infos.map(result => {
-        if (result.image !== "https://imdb-api.com/images/original/nopicture.jpg") {
-            return <MovieCard
-                img={result.image}
-                title={result.title}
-                id={result.id}
-                genres={result.genres}
-                rating={result.imDbRating}
-                duration={result.runtimeStr}
-            />
-        }
-    })
-
-    return <div>
-    <div className="dark:text-white py-5 bg-opacity-10 bg-slate-500">
+    return <div className="dark:text-white py-5 bg-opacity-10 bg-slate-500">
             <h2 className="text-center text-3xl pb-3">Search movie by title</h2>
         <form onSubmit={search} className="flex flex-col justify-center gap-3 items-center sm:flex-row" >
             <label htmlFor="title" className="text-lg">Title:</label>
@@ -43,8 +23,5 @@ export default function SearchForm() {
             </button>
         </form>
     </div>
-        <div className="flex min-h-custom justify-around items-center flex-wrap">
-            {infos && map}
-        </div>
-    </div>
+
 }
