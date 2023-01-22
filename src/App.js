@@ -11,7 +11,8 @@ function App() {
         <Route path="/" element={
           <SearchForm />
         }/>
-          <Route path="/:title" element={<ResultsPage />} />
+          <Route path="/:title" element={<ResultsPage />}/>
+            <Route path="/:title/:id" element={<MoviePage />}/>
       </Routes>
         </div>
   );

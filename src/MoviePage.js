@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 function MoviePage() {
 const [film, setFilm] = useState([]);
+const {id} = useParams()
 useEffect(() => {
   const options = {
     method: 'GET',
@@ -11,7 +13,7 @@ useEffect(() => {
     }
   };
   
-  fetch('https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=tt14452776&output_language=en', options)
+  fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=${id}&output_language=en`, options)
     .then(response => response.json())
     .then(response => setFilm(() => response))
     .catch(err => console.error(err));
