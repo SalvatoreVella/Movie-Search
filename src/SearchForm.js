@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 
 
 export default function SearchForm() {
@@ -22,6 +22,7 @@ export default function SearchForm() {
                 <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-white">Search</span>
             </button>
         </form>
+        <Outlet />
     </div>
 
 }

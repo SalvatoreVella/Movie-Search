@@ -12,16 +12,23 @@ useEffect(() => {
       'X-RapidAPI-Host': 'streaming-availability.p.rapidapi.com'
     }
   };
-  
-  fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=${id}&output_language=en`, options)
-    .then(response => response.json())
-    .then(response => setFilm(() => response))
-    .catch(err => console.error(err));
-}, [])
-    useEffect(() => console.log(film), [film])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=${id}&output_language=en`, options)
+      const data = await response.json();
+      setFilm(data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  fetchData()
+}, [id])
+
     return (
       <div className="App dark:bg-black">
-        <img className="w-full sm:w-1/2 dark:border-white dark:border-4" src={film.backdropURLs?.original}/>
+        <img className="w-full sm:w-1/2 dark:border-white dark:border-4" alt={film.title} src={film.backdropURLs?.original}/>
       </div>
     );
   }
