@@ -13,12 +13,18 @@ useEffect(() => {
     }
   };
   
-  fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=${id}&output_language=en`, options)
-    .then(response => response.json())
-    .then(response => setFilm(() => response))
-    .catch(err => console.error(err));
-}, [])
-    useEffect(() => console.log(film), [film])
+const fetchData = async () => {
+  try {
+    const response = await fetch(`https://streaming-availability.p.rapidapi.com/get/basic?country=it&imdb_id=${id}&output_language=en`, options)
+    const data = await response.json();
+    setFilm(data);
+    console.log(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
+fetchData()
+}, [id])
   return (
 <div>
     {film && <div className="App dark:bg-black">
