@@ -32,9 +32,9 @@ useEffect(() => {
 
   return (
     <div>
-      {film && <div className="App bg-gradient-to-r from-white via-gray-400 to-gray-600 flex flex-col items-center justify-center  dark:bg-black">
-        <h2 className="w-full flex items-center justify-center text-6xl">{film.originalTitle}</h2>
-        <img className="w-3/4 rounded-md flex items-center justify-center m-5" src={film.backdropURLs?.original} alt="movie"/>
+      {film && <div className=" min-h-screen App bg-gradient-to-r from-white via-gray-400 to-gray-600 dark:bg-black">
+        <img className="w-full rounded-md flex items-center justify-center mb-8" src={film.backdropURLs?.original} alt="movie"/>
+        <h2 className="w-full flex items-center justify-center text-3xl md:text-6xl">{film.originalTitle}</h2>
         {film.episodes &&  <span className="flex items-center justify-between">
         <span className="flex items-center justify-center rounded-md bg-gradient-to-tr drop-shadow-2xl from-gray-500 via-gray-300 to-gray-100">
           <h4 className="text-2xl m-3">Episodes: </h4>
