@@ -4,7 +4,7 @@ export default function MovieCard({ img, titl, id, rating, duration, genres, age
     const { title } = useParams();
     const navigate = useNavigate();
 
-    return <div onClick={() => navigate(`/${title}/${id}`)} className="w-60 cursor-pointer overflow-hidden bg-black dark:bg-gray-200 dark:shadow-gray-600
+    return <div className="w-60 cursor-pointer overflow-hidden bg-black dark:bg-gray-200 dark:shadow-gray-600
     dark:shadow-md dark:border dark:border-white text-center rounded-md m-3
     border border-gray-600 text-white dark:text-black drop-shadow-2xl
     hover:brightness-50 pt-2 hover:scale-105 transition-all duration-250
