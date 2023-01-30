@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 
 function MoviePage() {
 const [film, setFilm] = useState([]);
+
+const prevState = useLocation()
+const data = prevState.state.data;
+console.log(data);
 const {id} = useParams()
 useEffect(() => {
   const options = {

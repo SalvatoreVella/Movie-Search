@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
 export default function Results() {
@@ -22,7 +23,8 @@ export default function Results() {
 
     let map = infos.map(result => {
         if (result.image !== "https://imdb-api.com/images/original/nopicture.jpg") {
-            return <MovieCard
+            return <Link to={`/${title}/${result.id}`} state={{data: result}}>
+            <MovieCard
                 img={result.image}
                 titl={result.title}
                 id={result.id}
@@ -32,6 +34,7 @@ export default function Results() {
                 key={result.id}
                 age={result.description}
             />
+            </Link>
         } else {
             return null;
         }
