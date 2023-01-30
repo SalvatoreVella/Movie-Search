@@ -10,7 +10,7 @@ export default function Results() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_8p9jb7w1?title=${title}`)
+                const response = await fetch(`https://imdb-api.com/API/AdvancedSearch/k_8p9jb7w1?title=${title}&title_type=feature,tv_movie,tv_series,tv_miniseries,documentary`)
                 const data = await response.json();
                 setInfos(data.results)
                 console.log(data.results);
@@ -23,7 +23,7 @@ export default function Results() {
 
     let map = infos.map(result => {
         if (result.image !== "https://imdb-api.com/images/original/nopicture.jpg") {
-            return <Link to={`/${title}/${result.id}`} state={{data: result}}>
+            return <Link key={result.id} to={`/${title}/${result.id}`} state={{data: result}}>
             <MovieCard
                 img={result.image}
                 titl={result.title}
@@ -31,7 +31,6 @@ export default function Results() {
                 genres={result.genres}
                 rating={result.imDbRating}
                 duration={result.runtimeStr}
-                key={result.id}
                 age={result.description}
             />
             </Link>
